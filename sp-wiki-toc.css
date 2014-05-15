@@ -1,0 +1,19 @@
+/* Style wiki-toc */
+#toc-list{
+	border: 1px black dashed; 
+	background-color: whitesmoke;
+	float: left; 
+	padding: 10px; 
+	padding-top: 0px;
+	list-style-type: none; } 
+.toc{  } 
+.toc-H1{ 
+	font-size:18px; 
+	font-weight: bold;} 
+.toc-H2{ 
+	font-size:16px; 
+	font-weight: normal;} 
+.toc-H3{ 
+	font-size:14px;} 
+.toc-H4{ 
+	font-size:12px;} 	
