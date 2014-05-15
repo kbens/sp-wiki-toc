@@ -1,7 +1,7 @@
 <!-- Scripts and Style -->
 <script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
-<script type="text/javascript" src="/teamsite/XmlWebParts/sp-wiki-toc/sp-wiki-toc.js"></script>
-<link rel="stylesheet" type="text/css" href="/teamsite/XmlWebParts/sp-wiki-toc/sp-wiki-toc.css"/>
+<script type="text/javascript" src="/obf/APEX/techteam/XmlWebParts/sp-wiki-toc/sp-wiki-toc.js"></script>
+<link rel="stylesheet" type="text/css" href="/obf/APEX/techteam/XmlWebParts/sp-wiki-toc/sp-wiki-toc.css"/>
 <!-- Scripts and Style -->
 
 <!-- Table of Contents --> 
