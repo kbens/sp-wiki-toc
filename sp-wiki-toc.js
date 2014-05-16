@@ -6,6 +6,7 @@ Assumptions: H tags must start with H1 and be in sequential order. Example, goin
 
 /* use SP function below instead of $(document).ready */
 _spBodyOnLoadFunctions.push(function(){ 
+    var isTopLinkEnabled = true;
 	var prevHLevel = 1;
 	var listArray = [];
 	listArray[0] = $("#toc-list"); // H1
@@ -22,28 +23,31 @@ _spBodyOnLoadFunctions.push(function(){
 			current.attr("id", "title" + i);   
 			var curHLevel = getHLevel(current.prop('tagName'));
 			
+			if (isTopLinkEnabled) {
+				addTopLink(current);
+			}
+			
 			/* indent? */
 			if (curHLevel > prevHLevel) {
-				var $tempList = $("<ul>");
-				listArray[prevHLevel-1].append($tempList);
-				listArray[curHLevel-1] = $tempList;
+				var tempList = $("<ul>");
+				listArray[prevHLevel-1].append(tempList);
+				listArray[curHLevel-1] = tempList;
 			}  
 			else if (curHLevel < prevHLevel) { // clear reference to previous list
-				var $tempList = $("<ul>");
 				listArray[prevHLevel-1] = null;
 			}
 			
 			/* create new link */        
-			var $newLink = $("<a>");
-			$newLink.text(current.html());
-			$newLink.attr("id","");
-			$newLink.attr("href","#title" + i);
-			$newLink.attr("class","toc-" + current.prop('tagName'));
+			var newLink = $("<a>");
+			newLink.text(current.text()); /* Strip out an HTML */
+			newLink.attr("id","");
+			newLink.attr("href","#title" + i);
+			newLink.attr("class","toc-" + current.prop('tagName'));
 			
 			/* create new list item and add to list */
-			var $newItem = $("<li>");
-			$newItem.append($newLink);
-			$newItem.appendTo(listArray[curHLevel-1]);
+			var newItem = $("<li>");
+			newItem.append(newLink);
+			newItem.appendTo(listArray[curHLevel-1]);
 			
 			/* set previous level for next iteration */
 			prevHLevel = curHLevel;
@@ -60,3 +64,16 @@ function getHLevel(tag) {
 	
 	return tag.substring(1,2);	
 };
+
+/* add a link to the top of page, after H tag */
+function addTopLink(hTag) {
+	var topLink = $("<div>");
+    topLink.attr("class","top-link");
+	
+	var aHref = $("<a>");
+	aHref.attr("href","#toc-list");
+	aHref.text("Back to Top");
+	
+	topLink.append(aHref);	
+	hTag.after(topLink);
+}
