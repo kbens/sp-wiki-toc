@@ -5,20 +5,31 @@
 	float: left; 
 	padding: 10px; 
 	padding-top: 0px;
-	list-style-type: none; } 
-.toc{  } 
+	list-style-type: none;
+} 
+#toc{  
+} 
 .toc-H1{ 
 	font-size:18px; 
-	font-weight: bold;} 
+	font-weight: bold;
+} 
 .toc-H2{ 
 	font-size:16px; 
-	font-weight: normal;} 
+	font-weight: normal;
+} 
 .toc-H3{ 
-	font-size:14px;} 
+	font-size:14px;
+} 
 .toc-H4{ 
-	font-size:12px;} 	
+	font-size:12px;
+} 	
 .top-link{
 	text-align:right;
-	font-size:8px;
+	font-size:10px;
 	color:lightgray;
 }	
+.stick{
+	position: fixed;
+	top: 200px;
+	margin-right: 25px;	
+}

@@ -6,7 +6,14 @@ Assumptions: H tags must start with H1 and be in sequential order. Example, goin
 
 /* use SP function below instead of $(document).ready */
 _spBodyOnLoadFunctions.push(function(){ 
-    var isTopLinkEnabled = true;
+    /* set options */
+	var isTopLinkEnabled = false; /* true; */
+	var isStickEnabled = true; /* false; */
+	
+	if (isStickEnabled) {
+		enableStick();
+	};
+	
 	var prevHLevel = 1;
 	var listArray = [];
 	listArray[0] = $("#toc-list"); // H1
@@ -76,4 +83,11 @@ function addTopLink(hTag) {
 	
 	topLink.append(aHref);	
 	hTag.after(topLink);
-}
+};
+
+/* stick the ToC on the right side bar as you scroll */
+function enableStick(){
+	$('#toc').each(function(i){   
+		$(this).attr("class","stick");
+	});
+};
