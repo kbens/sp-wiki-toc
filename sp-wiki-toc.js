@@ -1,3 +1,4 @@
+//<![CDATA[
 /********* 
 Create Table of Contents - ToC for a SharePoint Wiki
 Description: This will create a nested list of links to all H tags on a SharePoint wiki page
@@ -91,3 +92,4 @@ function enableStick(){
 		$(this).attr("class","stick");
 	});
 };
+//]>
